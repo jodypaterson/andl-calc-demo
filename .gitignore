@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+*.js
+*.d.ts
+*.map
+!vitest.config.ts
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# ANDL-generated artifacts (reset these for demo)
+.github/
+docs/CI_SETUP.md
+docs/CONTRIBUTING.md
