@@ -6,7 +6,7 @@ A minimal Node.js project used for ANDL PE demonstrations.
 
 This repository serves as the **target project** for demonstrating ANDL's
 autonomous SDLC capabilities. During the demo, ANDL will read `SPEC.md`
-and generate a complete CI/CD pipeline.
+and generate a complete CI/CD pipeline. Or compiing an advanced calculator.
 
 ## Current State
 
