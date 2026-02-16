@@ -1,0 +1,62 @@
+# =============================================================================
+# DOCKER COMPOSE - DEVELOPMENT ENVIRONMENT
+# ANDL Demo Calculator Application
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # Client Service - React + Vite Development Server
+  # ---------------------------------------------------------------------------
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: client-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      # Mount source code for hot reload
+      - ./packages/client:/app/packages/client
+      # Prevent node_modules from being overridden
+      - /app/packages/client/node_modules
+    environment:
+      - NODE_ENV=development
+    command: pnpm --filter @andl-demo/client dev --host 0.0.0.0
+    stdin_open: true
+    tty: true
+    networks:
+      - andl-demo-network
+
+  # ---------------------------------------------------------------------------
+  # Server Service - PLACEHOLDER
+  # ---------------------------------------------------------------------------
+  # INSTRUCTIONS: Uncomment the section below when packages/server is created
+  #
+  # Steps to activate:
+  # 1. Create packages/server with package.json
+  # 2. Uncomment the entire 'server' service definition below
+  # 3. Run: docker-compose up --build
+  #
+  # server:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #     target: server-dev
+  #   ports:
+  #     - "3001:3001"
+  #   volumes:
+  #     # Mount source code for hot reload
+  #     - ./packages/server:/app/packages/server
+  #     # Prevent node_modules from being overridden
+  #     - /app/packages/server/node_modules
+  #   environment:
+  #     - NODE_ENV=development
+  #   command: pnpm --filter @andl-demo/server dev
+  #   depends_on:
+  #     - client
+  #   networks:
+  #     - andl-demo-network
+
+networks:
+  andl-demo-network:
+    driver: bridge

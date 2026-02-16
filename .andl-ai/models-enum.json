@@ -1,0 +1,264 @@
+{
+  "ts": 1770143433806,
+  "chat": [
+    {
+      "id": "gpt-5.2-codex",
+      "name": "GPT-5.2-Codex",
+      "family": "gpt-5.2-codex"
+    },
+    {
+      "id": "gpt-5-mini",
+      "name": "GPT-5 mini",
+      "family": "gpt-5-mini"
+    },
+    {
+      "id": "gpt-5",
+      "name": "GPT-5",
+      "family": "gpt-5"
+    },
+    {
+      "id": "gpt-4o-mini",
+      "name": "GPT-4o mini",
+      "family": "gpt-4o-mini"
+    },
+    {
+      "id": "copilot-fast",
+      "name": "GPT-4o mini",
+      "family": "copilot-fast"
+    },
+    {
+      "id": "gpt-4o",
+      "name": "GPT-4o",
+      "family": "gpt-4o"
+    },
+    {
+      "id": "grok-code-fast-1",
+      "name": "Grok Code Fast 1",
+      "family": "grok-code"
+    },
+    {
+      "id": "gpt-5.1",
+      "name": "GPT-5.1",
+      "family": "gpt-5.1"
+    },
+    {
+      "id": "gpt-5.1-codex",
+      "name": "GPT-5.1-Codex",
+      "family": "gpt-5.1-codex"
+    },
+    {
+      "id": "gpt-5.1-codex-mini",
+      "name": "GPT-5.1-Codex-Mini (Preview)",
+      "family": "gpt-5.1-codex-mini"
+    },
+    {
+      "id": "gpt-5.1-codex-max",
+      "name": "GPT-5.1-Codex-Max",
+      "family": "gpt-5.1-codex-max"
+    },
+    {
+      "id": "gpt-5-codex",
+      "name": "GPT-5-Codex (Preview)",
+      "family": "gpt-5-codex"
+    },
+    {
+      "id": "claude-sonnet-4",
+      "name": "Claude Sonnet 4",
+      "family": "claude-sonnet-4"
+    },
+    {
+      "id": "claude-sonnet-4.5",
+      "name": "Claude Sonnet 4.5",
+      "family": "claude-sonnet-4.5"
+    },
+    {
+      "id": "claude-opus-4.5",
+      "name": "Claude Opus 4.5",
+      "family": "claude-opus-4.5"
+    },
+    {
+      "id": "claude-opus-41",
+      "name": "Claude Opus 4.1",
+      "family": "claude-opus-4.1"
+    },
+    {
+      "id": "claude-haiku-4.5",
+      "name": "Claude Haiku 4.5",
+      "family": "claude-haiku-4.5"
+    },
+    {
+      "id": "gemini-3-pro-preview",
+      "name": "Gemini 3 Pro (Preview)",
+      "family": "gemini-3-pro"
+    },
+    {
+      "id": "gemini-3-flash-preview",
+      "name": "Gemini 3 Flash (Preview)",
+      "family": "gemini-3-flash"
+    },
+    {
+      "id": "gemini-2.5-pro",
+      "name": "Gemini 2.5 Pro",
+      "family": "gemini-2.5-pro"
+    },
+    {
+      "id": "gpt-4.1",
+      "name": "GPT-4.1",
+      "family": "gpt-4.1"
+    },
+    {
+      "id": "oswe-vscode-prime",
+      "name": "Raptor mini (Preview)",
+      "family": "oswe-vscode"
+    },
+    {
+      "id": "gpt-5.2",
+      "name": "GPT-5.2",
+      "family": "gpt-5.2"
+    },
+    {
+      "id": "auto",
+      "name": "Auto",
+      "family": "claude-haiku-4.5"
+    }
+  ],
+  "text": [],
+  "errors": [],
+  "extensions": [
+    {
+      "id": "vscode.github",
+      "isActive": true
+    },
+    {
+      "id": "vscode.github-authentication",
+      "isActive": true
+    },
+    {
+      "id": "GitHub.copilot-chat",
+      "isActive": true
+    },
+    {
+      "id": "GitHub.github-vscode-theme",
+      "isActive": false
+    },
+    {
+      "id": "GitHub.remotehub",
+      "isActive": false
+    },
+    {
+      "id": "github.vscode-github-actions",
+      "isActive": false
+    },
+    {
+      "id": "GitHub.vscode-pull-request-github",
+      "isActive": true
+    }
+  ],
+  "reason": "",
+  "copilot": {
+    "loggedInGuess": true,
+    "tokensDetected": false,
+    "commands": [
+      "github.copilot.chat.attachFile",
+      "github.copilot.chat.attachSelection",
+      "github.copilot.chat.triggerPermissiveSignIn",
+      "github.copilot.debug.collectDiagnostics",
+      "github.copilot.refreshToken",
+      "github.copilot.debug.showChatLogView",
+      "github.copilot.chat.startCopilotDebugCommand",
+      "github.copilot.debug.generateSTest",
+      "github.copilot.createLaunchJsonFileWithContents",
+      "github.copilot.startDebugging",
+      "github.copilot.open.walkthrough",
+      "github.copilot.mcp.viewContext7",
+      "github.copilot.chat.sendCompletionFeedback",
+      "github.copilot.chat.completions.enable",
+      "github.copilot.chat.completions.disable",
+      "github.copilot.chat.completions.toggle",
+      "github.copilot.completions.enable",
+      "github.copilot.completions.disable",
+      "github.copilot.completions.toggle",
+      "github.copilot.toggleStatusMenu",
+      "github.copilot.chat.toggleStatusMenu",
+      "github.copilot.openDocs",
+      "github.copilot.openLogs",
+      "github.copilot.chat.openSuggestionsPanel",
+      "github.copilot.generate",
+      "github.copilot.acceptCursorPanelSolution",
+      "github.copilot.previousPanelSolution",
+      "github.copilot.nextPanelSolution",
+      "github.copilot.openModelPicker",
+      "github.copilot.chat.openModelPicker",
+      "github.copilot.survey.signalUsage",
+      "github.copilot.report",
+      "github.copilot.debug.showContextInspectorView",
+      "github.copilot.nes.prepareRename",
+      "github.copilot.debug.validateNesRename",
+      "github.copilot.search.markHelpful",
+      "github.copilot.search.markUnhelpful",
+      "github.copilot.search.feedback",
+      "github.copilot.chat.notebook.enableFollowCellExecution",
+      "github.copilot.chat.notebook.disableFollowCellExecution",
+      "github.copilot.chat.replay",
+      "github.copilot.chat.replay.enableWorkspaceEditTracing",
+      "github.copilot.chat.replay.disableWorkspaceEditTracing",
+      "github.copilot.chat.showAsChatSession",
+      "github.copilot.buildLocalWorkspaceIndex",
+      "github.copilot.buildRemoteWorkspaceIndex",
+      "github.copilot.debug.collectWorkspaceIndexDiagnostics",
+      "github.copilot.cloud.resetWorkspaceConfirmations",
+      "github.copilot.cloud.sessions.openInBrowser",
+      "github.copilot.cloud.sessions.proxy.closeChatSessionPullRequest",
+      "github.copilot.cloud.sessions.installPRExtension",
+      "github.copilot.cli.sessions.delete",
+      "github.copilot.cli.sessions.resumeInTerminal",
+      "github.copilot.chat.applyCopilotCLIAgentSessionChanges",
+      "github.copilot.chat.applyCopilotCLIAgentSessionChanges.apply",
+      "github.copilot.interactiveSession.feedback",
+      "github.copilot.terminal.explainTerminalLastCommand",
+      "github.copilot.terminal.fixTerminalLastCommand",
+      "github.copilot.terminal.generateCommitMessage",
+      "github.copilot.git.generateCommitMessage",
+      "github.copilot.git.resolveMergeConflicts",
+      "github.copilot.devcontainer.generateDevContainerConfig",
+      "github.copilot.chat.openUserPreferences",
+      "github.copilot.chat.explain",
+      "github.copilot.chat.explain.palette",
+      "github.copilot.chat.review",
+      "github.copilot.chat.review.stagedChanges",
+      "github.copilot.chat.review.unstagedChanges",
+      "github.copilot.chat.review.changes",
+      "github.copilot.chat.review.stagedFileChange",
+      "github.copilot.chat.review.unstagedFileChange",
+      "github.copilot.chat.review.apply",
+      "github.copilot.chat.review.applyAndNext",
+      "github.copilot.chat.review.applyShort",
+      "github.copilot.chat.review.continueInInlineChat",
+      "github.copilot.chat.review.continueInChat",
+      "github.copilot.chat.review.discard",
+      "github.copilot.chat.review.discardAndNext",
+      "github.copilot.chat.review.discardShort",
+      "github.copilot.chat.review.discardAll",
+      "github.copilot.chat.review.markHelpful",
+      "github.copilot.chat.review.markUnhelpful",
+      "github.copilot.chat.review.previous",
+      "github.copilot.chat.review.next",
+      "github.copilot.chat.review.current",
+      "github.copilot.chat.generate",
+      "github.copilot.chat.generateDocs",
+      "github.copilot.chat.generateTests",
+      "github.copilot.chat.fix",
+      "github.copilot.chat.generateAltText",
+      "github.copilot.createProject",
+      "github.copilot.openFile",
+      "github.copilot.createFile",
+      "github.copilot.executeSearch",
+      "github.copilot.chat.debug.showElements",
+      "github.copilot.chat.debug.hideElements",
+      "github.copilot.chat.debug.showTools",
+      "github.copilot.chat.debug.hideTools",
+      "github.copilot.chat.debug.showNesRequests",
+      "github.copilot.chat.debug.hideNesRequests"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+# =============================================================================
+# DEVELOPMENT DOCKERFILE - ANDL Demo Calculator
+# Optimized for development with hot reload support
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Base development image
+# -----------------------------------------------------------------------------
+FROM node:20-alpine AS base
+
+# Install corepack for pnpm support
+RUN corepack enable
+
+WORKDIR /app
+
+# Copy package files
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY packages/client/package.json ./packages/client/
+
+# Future: Uncomment when server package exists
+# COPY packages/server/package.json ./packages/server/
+
+# Install all dependencies (including devDependencies)
+RUN pnpm install --frozen-lockfile
+
+# -----------------------------------------------------------------------------
+# Client development target
+# -----------------------------------------------------------------------------
+FROM base AS client-dev
+
+WORKDIR /app
+
+# Copy client source (will be overridden by volume mount in docker-compose)
+COPY packages/client ./packages/client
+
+# Expose Vite dev server port
+EXPOSE 5173
+
+# Start development server with host 0.0.0.0 for external access
+CMD ["pnpm", "--filter", "@andl-demo/client", "dev", "--host", "0.0.0.0"]
+
+# -----------------------------------------------------------------------------
+# Server development target (PLACEHOLDER)
+# Uncomment when packages/server exists
+# -----------------------------------------------------------------------------
+# FROM base AS server-dev
+# 
+# WORKDIR /app
+# 
+# # Copy server source (will be overridden by volume mount)
+# COPY packages/server ./packages/server
+# 
+# # Expose server port
+# EXPOSE 3001
+# 
+# # Start development server
+# CMD ["pnpm", "--filter", "@andl-demo/server", "dev"]

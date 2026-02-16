@@ -1,0 +1,77 @@
+// Prisma Schema for ANDL Calculator Demo
+// Database: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums
+enum CalcMode {
+  DEG
+  RAD
+}
+
+// Models
+model User {
+  id                   String    @id @default(cuid())
+  username             String    @unique
+  email                String    @unique
+  password_hash        String
+  failed_login_attempts Int      @default(0)
+  locked_until         DateTime?
+  created_at           DateTime  @default(now())
+  updated_at           DateTime  @updatedAt
+
+  // Relations
+  profile      Profile?
+  sessions     Session[]
+  calc_history CalcHistory[]
+
+  @@index([email])
+  @@index([username])
+}
+
+model Profile {
+  id           String   @id @default(cuid())
+  user_id      String   @unique
+  display_name String?
+  bio          String?  @db.VarChar(500)
+  avatar_url   String?
+  updated_at   DateTime @updatedAt
+
+  // Relations
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Session {
+  id                 String   @id @default(cuid())
+  user_id            String
+  refresh_token_hash String
+  expires_at         DateTime
+  device_info        String?
+  created_at         DateTime @default(now())
+
+  // Relations
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id, expires_at])
+}
+
+model CalcHistory {
+  id         String   @id @default(cuid())
+  user_id    String
+  expression String
+  result     String
+  mode       CalcMode
+  created_at DateTime @default(now())
+
+  // Relations
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id, created_at(sort: Desc)])
+}

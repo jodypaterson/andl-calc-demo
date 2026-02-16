@@ -1,0 +1,63 @@
+# =============================================================================
+# DOCKER COMPOSE - PRODUCTION ENVIRONMENT
+# ANDL Demo Calculator Application
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # Client Service - Production Build (nginx)
+  # ---------------------------------------------------------------------------
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    networks:
+      - andl-demo-network
+
+  # ---------------------------------------------------------------------------
+  # Server Service - PLACEHOLDER
+  # ---------------------------------------------------------------------------
+  # INSTRUCTIONS: Uncomment when packages/server is created
+  #
+  # Steps to activate:
+  # 1. Ensure packages/server has production build configured
+  # 2. Update Dockerfile to include server build stages
+  # 3. Uncomment the 'server' service below
+  # 4. Run: docker-compose -f docker-compose.prod.yml up --build
+  #
+  # server:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     target: server-production
+  #   ports:
+  #     - "3001:3001"
+  #   environment:
+  #     - NODE_ENV=production
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - client
+  #   healthcheck:
+  #     test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3001/health"]
+  #     interval: 30s
+  #     timeout: 3s
+  #     retries: 3
+  #     start_period: 10s
+  #   networks:
+  #     - andl-demo-network
+
+networks:
+  andl-demo-network:
+    driver: bridge

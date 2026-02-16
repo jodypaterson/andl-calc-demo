@@ -1,0 +1,91 @@
+{
+  "enabled": true,
+  "ai": {
+    "executionMode": "live",
+    "summaryModel": "copilot/gpt-5-mini",
+    "fallbackModel": "gpt-3.5-turbo",
+    "documentationModel": "copilot/claude-sonnet-4.5",
+    "embeddingModel": "text-embedding-3-small"
+  },
+  "languages": {
+    "typescript": true,
+    "javascript": true,
+    "python": true,
+    "go": false,
+    "rust": false,
+    "java": false,
+    "csharp": false,
+    "ruby": false,
+    "php": false
+  },
+  "features": {
+    "symbolExtraction": true,
+    "complexityAnalysis": true,
+    "dependencyGraph": true,
+    "aiSummarization": true,
+    "embeddings": false,
+    "livingDocs": true
+  },
+  "thresholds": {
+    "maxFileSizeBytes": 512000,
+    "summaryQueueConcurrency": 3,
+    "debounceMs": 500,
+    "batchSize": 100
+  },
+  "livingDocs": {
+    "documents": {
+      "architecture": true,
+      "dependencies": true,
+      "apiSurface": true,
+      "hotspots": false,
+      "onboarding": false,
+      "changeImpact": false,
+      "security": false,
+      "testing": false,
+      "glossary": false,
+      "readme": true
+    },
+    "autoRegenerate": false,
+    "archiveBeforeUpdate": true,
+    "modelOverrides": {
+      "defaultModel": "gpt-4o-mini",
+      "documents": {
+        "architecture": {
+          "enabled": true,
+          "model": "gpt-4o",
+          "aiSections": [
+            "overview",
+            "components"
+          ]
+        },
+        "dependencies": {
+          "enabled": true,
+          "model": "gpt-4o-mini"
+        },
+        "api_surface": {
+          "enabled": true,
+          "model": "claude-3-haiku"
+        }
+      }
+    }
+  },
+  "workspaceScope": {
+    "includedFolders": [],
+    "respectGitignore": true,
+    "excludePatterns": [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/build/**",
+      "**/.git/**"
+    ]
+  },
+  "storage": {
+    "type": "sqlite",
+    "path": ".andl"
+  },
+  "automation": {
+    "autoIndex": true,
+    "autoSummarize": true,
+    "autoIndexIntervalMinutes": 5
+  }
+}

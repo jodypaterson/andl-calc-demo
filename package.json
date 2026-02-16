@@ -1,8 +1,12 @@
 {
   "name": "andl-demo-cicd",
   "version": "0.1.0",
+  "private": true,
   "description": "ANDL PE Demo - CI/CD Pipeline target project",
   "type": "module",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -11,14 +15,41 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
   },
-  "keywords": ["andl", "demo", "cicd"],
+  "keywords": [
+    "andl",
+    "demo",
+    "cicd"
+  ],
   "author": "ANDL Team",
   "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.7.0",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.0",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "zod": "^3.22.4"
+  },
   "devDependencies": {
+    "@faker-js/faker": "^10.2.0",
+    "@playwright/test": "^1.58.1",
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^20.10.0",
+    "@types/supertest": "^6.0.3",
+    "@vitest/coverage-v8": "^1.0.0",
+    "autoprefixer": "^10.4.24",
+    "prisma": "^5.7.0",
+    "supertest": "^7.2.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.0",
-    "vitest": "^1.0.0",
-    "@vitest/coverage-v8": "^1.0.0"
+    "vitest": "^1.0.0"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -1,0 +1,103 @@
+{
+  "phase": "P1.1 - Project Setup",
+  "section": "§02 - Decision Resolution",
+  "type": "setup",
+  "priority": 1,
+  "acceptanceCriteria": [
+    "All ATPs analyzed for HITL triggers",
+    "HITL session completed with @operator",
+    "PostgreSQL database provisioned and accessible",
+    "Connection string documented in .env",
+    "JWT secrets generated and stored securely",
+    "All infrastructure decisions documented",
+    "Database seed script tested successfully"
+  ],
+  "anticipatedHitlPoints": [
+    {
+      "id": 1,
+      "category": "Infrastructure",
+      "question": "How will PostgreSQL be provisioned?",
+      "context": "ATPs 7-8 require a PostgreSQL database. The UOW spec shows docker-compose.yml was already created (ATP 39 done). We need to decide how to run the database.",
+      "affectedAtps": [7, 8],
+      "options": [
+        "Docker container via docker-compose up -d db (RECOMMENDED - already configured)",
+        "Local PostgreSQL installation",
+        "Cloud service (Railway, Supabase, Neon)"
+      ],
+      "helpAvailable": "Can start Docker container and verify connectivity. Container is already configured in docker-compose.yml."
+    },
+    {
+      "id": 2,
+      "category": "Configuration",
+      "question": "What is the database connection string?",
+      "context": "Prisma needs DATABASE_URL environment variable. If using Docker, defaults are: postgresql://postgres:postgres@localhost:5432/andl_demo",
+      "affectedAtps": [7, 8],
+      "options": [
+        "postgresql://postgres:postgres@localhost:5432/andl_demo (Docker default)",
+        "Custom connection string (provide your own)"
+      ],
+      "helpAvailable": "Can create .env file with DATABASE_URL and verify Prisma can connect."
+    },
+    {
+      "id": 3,
+      "category": "Credentials",
+      "question": "How should JWT secrets be managed?",
+      "context": "The authentication system (ATPs 12, 14, 15) requires JWT_ACCESS_SECRET and JWT_REFRESH_SECRET. These must be cryptographically secure random strings.",
+      "affectedAtps": [12, 14, 15],
+      "options": [
+        ".env file with generated secrets (development - simple)",
+        "Environment variables injected at runtime (production)",
+        "Secrets manager (enterprise)"
+      ],
+      "helpAvailable": "Can generate cryptographically secure random secrets using: openssl rand -base64 64"
+    },
+    {
+      "id": 4,
+      "category": "Credentials",
+      "question": "Cookie secret for session management?",
+      "context": "COOKIE_SECRET is needed for signed cookies. Similar security requirements to JWT secrets.",
+      "affectedAtps": [14, 15],
+      "options": [
+        "Generate and store in .env (same as JWT approach)",
+        "Separate secret management"
+      ],
+      "helpAvailable": "Can generate: openssl rand -base64 32"
+    },
+    {
+      "id": 5,
+      "category": "Preferences",
+      "question": "Avatar storage preference?",
+      "context": "User avatars can be stored as base64 in the database (simple for demo) or in S3-compatible storage (production-ready).",
+      "affectedAtps": [18, 31],
+      "options": [
+        "Base64 in database (RECOMMENDED for demo - no external dependencies)",
+        "S3-compatible storage (requires AWS credentials or MinIO setup)"
+      ],
+      "helpAvailable": "Database storage works out of box. S3 requires additional configuration and credentials."
+    },
+    {
+      "id": 6,
+      "category": "Configuration",
+      "question": "Server port configuration?",
+      "context": "Express server default port is 3000. Need to confirm this won't conflict with other services.",
+      "affectedAtps": [9],
+      "options": [
+        "Port 3000 (default)",
+        "Custom port (specify)"
+      ],
+      "helpAvailable": "Can configure any available port in .env file."
+    }
+  ],
+  "hitlSessionProtocol": {
+    "description": "This ATP requires a HITL session with the operator to resolve all questions before implementation can proceed.",
+    "steps": [
+      "1. @PM opens HITL with complete question list",
+      "2. Walk through each question with operator",
+      "3. For each decision, take action if operator requests help (e.g., start Docker, create .env)",
+      "4. Verify each setup works before moving to next question",
+      "5. Document all decisions in resolution summary",
+      "6. Send resolution message to @pm with complete record",
+      "7. Update ATP status to Complete"
+    ]
+  }
+}
